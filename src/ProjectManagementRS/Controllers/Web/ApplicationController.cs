@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
+using ProjectManagementRS.Models;
+using System.Linq;
 
 namespace ProjectManagementRS.Controllers.Web
 {
@@ -9,6 +11,11 @@ namespace ProjectManagementRS.Controllers.Web
             return View();
         }
 
+        public IActionResult Home()
+        {
+            //var users = _usersContext.Users.ToList();
+            return View();
+        }
 
         public IActionResult Users()
         {

@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html ng-app="app-darkstar">
 <head>
     <meta name="viewport" content="width=device-width"/>
     <title>@ViewBag.Title</title>
@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/bootswatch/spacelab/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css"/>
-
+    <link rel="stylesheet" href="~/lib/angular-ui-grid/ui-grid.min.css"/>
+    <link rel="shortcut icon" href="favicon.ico">
+    <base href="/"/>
 </head>
 <body>
 
@@ -47,23 +49,40 @@
 
 <div id="sidebar">
     <ul class="nav nav-sidebar">
-        <li>@Html.ActionLink("Home", "Index", "Application")</li>
-        <li>@Html.ActionLink("Users", "Users", "Application")</li>
-        <li>@Html.ActionLink("Projects", "Projects", "Application")</li>
-        <li>@Html.ActionLink("Time", "Time", "Application")</li>
+        <li>
+            <a ui-sref="home">Home</a>
+        </li>
+        <li>
+            <a ui-sref="users">Users</a>
+        </li>
+        <li>
+            <a ui-sref="projects">Projects</a>
+        </li>
+        <li>
+            <a ui-sref="time">Time Sheet</a>
+        </li>
     </ul>
-
 </div>
+
 <div id="wrapper">
+
     <div id="main">
-        <div>
+        <div ui-view="">
+
             @RenderBody()
         </div>
+
     </div>
 </div>
 
 <script type="text/javascript" src="~/lib/jQuery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="~/lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="~/lib/angular-ui-grid/ui-grid.min.js"></script>
+<script type="text/javascript" src="~/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="~/js/app-darkstar.js"></script>
+<script type="text/javascript" src="~/js/usersController.js"></script>
 
 </body>
 </html>
