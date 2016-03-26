@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectManagementRS.Models
 {
     public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int32 Id { get; set; }
         public string UserName { get; set; }
         public string Name { get; set; }
@@ -16,9 +20,8 @@ namespace ProjectManagementRS.Models
         public string Password { get; set; }
         public bool IsActive { get; set; }
 
-        ICollection<Project> Projects { get; set; }
-        ICollection<Role> UserRoles { get; set; }
-
+        public ICollection<UserProject> UserProjects { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
         public virtual ICollection<TimeSheet> TimeSheets { get; set; } = new HashSet<TimeSheet>();
     }
 

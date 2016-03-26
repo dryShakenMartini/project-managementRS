@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjectManagementRS.Models
 {
     public class Project
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Int32 Id { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
@@ -16,7 +20,7 @@ namespace ProjectManagementRS.Models
 
         public string Description { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<UserProject> UserProjects { get; set; }
 
         public virtual ICollection<TimeSheet> TimeSheets { get; set; } = new HashSet<TimeSheet>();
     }
