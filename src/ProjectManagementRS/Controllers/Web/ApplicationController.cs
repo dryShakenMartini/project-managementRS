@@ -6,6 +6,13 @@ namespace ProjectManagementRS.Controllers.Web
 {
     public class ApplicationController: Controller
     {
+        private UsersContext _usersContext;
+
+        public ApplicationController(UsersContext context)
+        {
+            _usersContext = context;
+        }
+
         public IActionResult Index()
         {
             return View();

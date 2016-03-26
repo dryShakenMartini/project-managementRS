@@ -33,6 +33,9 @@ namespace ProjectManagementRS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<UsersContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
