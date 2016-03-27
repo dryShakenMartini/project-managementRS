@@ -8,7 +8,7 @@ namespace ProjectManagementRS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
 

@@ -6,6 +6,7 @@ namespace ProjectManagementRS.Models
     {
         public UsersContext()
         {
+            Database.EnsureCreated();
         }
 
         public DbSet<User> Users { get; set; }
@@ -15,6 +16,10 @@ namespace ProjectManagementRS.Models
         public DbSet<TimeSheet> TimeSheets { get; set; }
 
         public DbSet<Role> Roles { get; set; }
+
+        public DbSet<UserProject> UserProjects { get; set; }
+
+        public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

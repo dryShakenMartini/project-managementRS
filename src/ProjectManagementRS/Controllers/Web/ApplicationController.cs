@@ -15,6 +15,7 @@ namespace ProjectManagementRS.Controllers.Web
 
         public IActionResult Index()
         {
+            var users = _usersContext.Users.Count();
             return View();
         }
 

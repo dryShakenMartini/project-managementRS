@@ -36,10 +36,12 @@ namespace ProjectManagementRS
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<UsersContext>();
+
+            services.AddTransient<UsersContextSeedData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, UsersContextSeedData contextSeeder)
         {
             app.UseStaticFiles();
             app.UseMvc(config =>
@@ -50,6 +52,8 @@ namespace ProjectManagementRS
                     defaults: new {controller= "Application", action = "Index"}
                     );
             });
+
+            contextSeeder.SeedInitialData();
         }
 
         // Entry point for the application.

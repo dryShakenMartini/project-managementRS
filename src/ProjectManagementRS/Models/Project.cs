@@ -9,12 +9,12 @@ namespace ProjectManagementRS.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Int32 Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime EndDate { get; set; }
-        public Int32 PlannedHours { get; set; }
+        public int PlannedHours { get; set; }
         public ProjectStatus Status { get; set; }
         public bool IsActive { get; set; }
 
