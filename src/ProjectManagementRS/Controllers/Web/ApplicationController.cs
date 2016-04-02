@@ -1,27 +1,25 @@
 ﻿using Microsoft.AspNet.Mvc;
 using ProjectManagementRS.Models;
-using System.Linq;
 
 namespace ProjectManagementRS.Controllers.Web
 {
     public class ApplicationController: Controller
     {
-        private UsersContext _usersContext;
+        private IUserRepository _userRepository;
 
-        public ApplicationController(UsersContext context)
+        public ApplicationController(IUserRepository repository)
         {
-            _usersContext = context;
+            _userRepository = repository;
         }
 
         public IActionResult Index()
         {
-            var users = _usersContext.Users.Count();
+            var users = _userRepository.FindAll();
             return View();
         }
 
         public IActionResult Home()
         {
-            //var users = _usersContext.Users.ToList();
             return View();
         }
 
