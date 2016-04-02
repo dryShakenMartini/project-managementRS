@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 using ProjectManagementRS.Models;
+using Newtonsoft.Json.Serialization;
 
 namespace ProjectManagementRS
 {
@@ -32,7 +33,9 @@ namespace ProjectManagementRS
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<UsersContext>();
