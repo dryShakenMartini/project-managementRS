@@ -37,5 +37,10 @@ namespace ProjectManagementRS.Controllers.Web
         {
             return View();
         }
+
+        public IActionResult UserDialog()
+        {
+            return View();
+        }
     }
 }
