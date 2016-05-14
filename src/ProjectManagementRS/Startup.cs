@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 using ProjectManagementRS.Models;
 using Newtonsoft.Json.Serialization;
+using ProjectManagementRS.ApplicationServices;
 
 namespace ProjectManagementRS
 {
@@ -42,6 +43,7 @@ namespace ProjectManagementRS
 
             services.AddTransient<UsersContextSeedData>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

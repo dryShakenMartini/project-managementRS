@@ -24,10 +24,18 @@ angular.module("app-darkstar", ["ui.router", "ui.grid"])
                 .state("time", {
                     templateUrl: baseUrl + "Application/Time",
                     url: "/timesheet"
-                });
+                })
+              .state("register", {
+                  templateUrl: baseUrl + "UserAccount/UserRegistration",
+                  url: "/register"
+              })
+            .state("login", {
+                templateUrl: baseUrl + "UserAccount/LogIn",
+                url: "/login"
+            });
 
 
-            $urlRouterProvider.otherwise("/home");
+            $urlRouterProvider.otherwise("/register");
 
         }
     ]);

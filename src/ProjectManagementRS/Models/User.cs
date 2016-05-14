@@ -18,6 +18,7 @@ namespace ProjectManagementRS.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public bool IsActive { get; set; }
 
         public ICollection<UserProject> UserProjects { get; set; }

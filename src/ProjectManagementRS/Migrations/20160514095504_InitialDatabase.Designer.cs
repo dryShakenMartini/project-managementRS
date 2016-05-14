@@ -8,7 +8,7 @@ using ProjectManagementRS.Models;
 namespace ProjectManagementRS.Migrations
 {
     [DbContext(typeof(UsersContext))]
-    [Migration("20160326204922_InitialDatabase")]
+    [Migration("20160514095504_InitialDatabase")]
     partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,6 +75,8 @@ namespace ProjectManagementRS.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConfirmPassword");
 
                     b.Property<string>("Email");
 

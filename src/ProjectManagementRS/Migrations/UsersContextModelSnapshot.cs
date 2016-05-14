@@ -75,6 +75,8 @@ namespace ProjectManagementRS.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("ConfirmPassword");
+
                     b.Property<string>("Email");
 
                     b.Property<DateTime>("EndDate");
