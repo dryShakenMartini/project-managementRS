@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("app-darkstar").controller("darkstar.UsersController", ["$scope","$http",
+angular.module("app-darkstar").controller("rigel.UsersController", ["$scope","$http",
     function($scope, $http) {
         var vm = this;
         $scope.gridOptions = {

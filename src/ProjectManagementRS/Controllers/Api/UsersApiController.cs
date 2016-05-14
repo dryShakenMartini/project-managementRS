@@ -32,7 +32,7 @@ namespace ProjectManagementRS.Controllers.Api
               new { field= "email", displayName= "Email", width = 100 },
               new { field= "isActive", displayName= "Is Active", width = 100 },
               new { field= "actions", displayName= "Actions", width = 100,
-                  cellTemplate = @"<div class=""glyphicon glyphicon-wrench"" ng-click=editUser()></div> <div class = ""glyphicon glyphicon-trash"" ng-click=deleteUser()></div>" },
+                  cellTemplate = @"<div class=""glyphicon glyphicon-wrench"" ng-click=edit()></div> <div class = ""glyphicon glyphicon-trash"" ng-click=delete()></div>" },
 
             };
         }

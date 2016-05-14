@@ -8,16 +8,21 @@ namespace ProjectManagementRS.ApplicationServices
 {
     public class ProjectService: IProjectService
     {
-        private readonly IProjectRepository _repositroy;
+        private readonly IProjectRepository _repository;
 
         public ProjectService(IProjectRepository repository)
         {
-            _repositroy = repository;
+            _repository = repository;
         }
 
-        public IEnumerable<Project> FindProjectsByUser(string userName)
+        public IEnumerable<Project> FindAll()
         {
-            throw new NotImplementedException();
+           return _repository.FindAll();
+        }
+
+        public IEnumerable<Project> GetProjects(string UserName)
+        {
+            return _repository.FindProjectsByUserName(UserName);
         }
     }
 }

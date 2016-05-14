@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectManagementRS.ApplicationServices
 {
-    interface IProjectService
+    public interface IProjectService
     {
-        IEnumerable<Project> FindProjectsByUser(string userName);
+        IEnumerable<Project> GetProjects(string UserName);
+        IEnumerable<Project>  FindAll();
     }
 }
