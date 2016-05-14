@@ -8,10 +8,10 @@ using System.Linq;
 namespace ProjectManagementRS.Controllers.Api
 {
     [Route("api/users")]
-    public class UserController : ApiController
+    public class UsersApiController : ApiController
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        public UsersApiController(IUserService userService)
         {
             _userService = userService;
         }

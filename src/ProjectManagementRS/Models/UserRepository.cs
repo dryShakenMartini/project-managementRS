@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,13 +32,13 @@ namespace ProjectManagementRS.Models
 
         public void Add(User user)
         {
-            _context.Add(user);
+            _context.Users.Add(user);
             _context.SaveChanges();
         }
 
         public User FindById(int Id)
         {
-            return _context.Users.Where(x => x.Id == Id).SingleOrDefault();
+            return FindAllEagerly().Where(x => x.Id == Id).SingleOrDefault();
         }
 
         public bool TryCreate(User user, string password)
@@ -53,6 +54,11 @@ namespace ProjectManagementRS.Models
                 Add(user);
                 return true;
             }
+        }
+
+        public IEnumerable<User> FindAllEagerly()
+        {
+            return _context.Users.Include(x => x.UserProjects).Include(y => y.UserRoles).Include(z => z.TimeSheets);
         }
     }
 }

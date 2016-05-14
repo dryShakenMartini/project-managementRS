@@ -5,6 +5,7 @@ namespace ProjectManagementRS.Models
     public interface IUserRepository
     {
         IEnumerable<User> FindAll();
+        IEnumerable<User> FindAllEagerly();
         User FindById(int Id);
         User FindUserByUserName(string UserName);
         User FindUser(string UserName, string Password);
