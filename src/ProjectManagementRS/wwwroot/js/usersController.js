@@ -7,6 +7,9 @@ angular.module("app-darkstar").controller("rigel.UsersController", ["$scope","$h
             enableColumnResizing: true,
         };
 
+
+        $scope.data = {};
+
         var baseUrl = $("base").first().attr("href");
 
         $http({ method: "GET", url: "http://localhost:8000/api/users/columns" })
@@ -28,11 +31,11 @@ angular.module("app-darkstar").controller("rigel.UsersController", ["$scope","$h
                 templateUrl: baseUrl + "Application/UserDialog",
                 controller: "ModalController"
             }).then(function (modal) {
-            modal.element.modal();
-               modal.close.then(function (result) {
-                 $scope.message = "You said " + result;
-              });
-             });
+                modal.element.modal();
+                modal.close.then(function (result) {
+                    $scope.data = result;
+                });
+            });
         };
         vm.name = "Rada";
 

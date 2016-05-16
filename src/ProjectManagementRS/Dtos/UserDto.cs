@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ProjectManagementRS.Models;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProjectManagementRS.Dtos
 {
@@ -7,12 +9,32 @@ namespace ProjectManagementRS.Dtos
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
+
+        [Display(Name = "Name")]
         public string Name { get; set; }
+
+        [Display(Name = "Surname")]
         public string Surname { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Start Date")]
+        public DateTime StartDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "End Date")]
+        public DateTime EndDate { get; set; }
+
+        [Display(Name = "User Role")]
+        public RoleType Role { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
 
         [Required]
