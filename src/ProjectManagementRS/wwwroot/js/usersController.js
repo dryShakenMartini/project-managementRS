@@ -7,14 +7,14 @@ angular.module("app-darkstar").controller("darkstar.UsersController", ["$scope",
             enableColumnResizing: true,
         };
         
-        $http({ method: "GET", url: "http://localhost:53213/api/users/columns" })
+        $http({ method: "GET", url: "http://localhost:8000/api/users/columns" })
         .then(function (response) {
             $scope.gridOptions.columnDefs = response.data;
         }, function (response) {
             $scope.gridOptions.columnDefs = [];
         });
 
-        $http({ method: "GET", url: "http://localhost:53213/api/users" })
+        $http({ method: "GET", url: "http://localhost:8000/api/users" })
         .then(function (response) {
             $scope.gridOptions.data = response.data;
         },function (response) {

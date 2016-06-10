@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Entity;
+using ProjectManagementRS.Models;
 
 namespace ProjectManagementRS.Models
 {
