@@ -43,7 +43,7 @@
                             @Html.LabelFor(m => m.StartDate, new { @class = "col-md-2 control-label" })
                             <div class="col-md-6">
                                 <div class="input-group date">
-                                    <input type="date" class="form-control" ng-model="User.StartDate"/>
+                                    <input type="text" class="form-control" ui-date="{dateFormat: 'yy-mm-dd'}" ui-date-format="yy-mm-dd" placeholder="DD/MM/YYYY" class="form-control" datepicker-popup="{{format}}" ng-model="User.StartDate"/>
                                 </div>
                             </div>
                         </div>

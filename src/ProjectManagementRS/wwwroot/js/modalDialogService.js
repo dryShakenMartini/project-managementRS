@@ -63,7 +63,7 @@ angular.module("app-darkstar").factory("ModalDialogService",
                     };
                     modal.close.then(function (result) {
                         modalScope.$destroy();
-                        modalElement.remove();
+                    //    modalElement.remove();
                     });
 
                     deferred.resolve(modal);

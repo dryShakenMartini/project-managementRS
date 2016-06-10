@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ProjectManagementRS.Models;
 
 namespace ProjectManagementRS.ApplicationServices
@@ -10,6 +11,12 @@ namespace ProjectManagementRS.ApplicationServices
         {
             _repositroy = repository;
         }
+
+        public void Create(User entity)
+        {
+            _repositroy.Add(entity);
+        }
+
         public IEnumerable<User> FindAll()
         {
            return _repositroy.FindAll();

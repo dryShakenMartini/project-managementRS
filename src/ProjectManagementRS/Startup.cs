@@ -11,6 +11,7 @@ using Microsoft.Extensions.PlatformAbstractions;
 using ProjectManagementRS.Models;
 using Newtonsoft.Json.Serialization;
 using ProjectManagementRS.ApplicationServices;
+using ProjectManagementRS.Dtos;
 
 namespace ProjectManagementRS
 {
@@ -35,7 +36,11 @@ namespace ProjectManagementRS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
 
             services.AddEntityFramework()
                 .AddSqlServer()
@@ -62,6 +67,13 @@ namespace ProjectManagementRS
             });
 
             contextSeeder.SeedInitialData();
+
+            AutoMapper.Mapper.Initialize(config =>
+                config.CreateMap<UserDto, User>()
+                .ForMember(x => x.UserProjects, option => option.Ignore())
+                .ForMember(x => x.UserRoles, option => option.Ignore())
+                .ForMember(x => x.TimeSheets, option => option.Ignore())
+            );
         }
 
         // Entry point for the application.

@@ -6,5 +6,6 @@ namespace ProjectManagementRS.ApplicationServices
     public interface IUserService
     {
         IEnumerable<User> FindAll();
+        void Create(User entity);
     }
 }

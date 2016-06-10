@@ -1,7 +1,13 @@
 ﻿"use strict";
 
-angular.module("app-darkstar").controller("ModalController",["$scope", "close",
-    function ($scope, close) {
+angular.module("app-darkstar").controller("ModalController",["$scope", "$filter","close",
+    function ($scope, $filter, close) {
+
+
+        var dateInIsoFormat = function (date)
+        {
+            return $filter("date")(new Date(date), "YYYY-MM-DD");
+        };
 
         $scope.User = {
             Name: "",
@@ -9,9 +15,10 @@ angular.module("app-darkstar").controller("ModalController",["$scope", "close",
             UserName: "",
             Email: "",
             PhoneNumber: "",
-            StartDate: null,
-            EndDate: null,
-            Role: null
+            StartDate: dateInIsoFormat(null),
+            EndDate: dateInIsoFormat(null),
+            Role: 0,
+            IsActive: false
         };
 
         $scope.close = function (result) {
