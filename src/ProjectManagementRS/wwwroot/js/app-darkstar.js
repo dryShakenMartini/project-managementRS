@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("app-darkstar", ["ui.router", "ui.grid"])
+angular.module("app-darkstar", ["ui.router", "ui.grid", "ui.bootstrap","ui.bootstrap.datepicker"])
     .config([
         "$stateProvider", "$urlRouterProvider", "$locationProvider",
         function($stateProvider, $urlRouterProvider, $locationProvider) {

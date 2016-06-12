@@ -43,7 +43,7 @@ namespace ProjectManagementRS.Controllers.Api
         }
 
         [HttpPost]
-        public HttpResponseMessage Post([FromBody]UserDto userDto)
+        public HttpResponseMessage Post(UserDto userDto)
         {
             var user = AutoMapper.Mapper.Map<UserDto, User>(userDto);
             _userService.Create(user);

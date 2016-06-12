@@ -15,18 +15,18 @@ angular.module("app-darkstar").controller("ModalController",["$scope", "$filter"
             UserName: "",
             Email: "",
             PhoneNumber: "",
-            StartDate: dateInIsoFormat(null),
-            EndDate: dateInIsoFormat(null),
-            Role: 0,
+            StartDate: new Date(),
+            EndDate: new Date(),
+            Role: null,
             IsActive: false
         };
 
         $scope.close = function (result) {
-            if (result == 'Ok') {
+            if (result === 'Ok') {
                 close($scope.User, 500);
             }
             else {
-                close(result, 500)
+                close(result, 500);
             }
          // close, but give 500ms for bootstrap to animate
     };

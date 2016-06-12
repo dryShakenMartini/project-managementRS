@@ -42,5 +42,20 @@ namespace ProjectManagementRS.Controllers.Web
         {
             return View();
         }
+
+        public IActionResult DatePickerModal()
+        {
+            return View();
+        }
+
+        public IActionResult DatePickerTemplate()
+        {
+            return View();
+        }
+
+        public IActionResult DatePickerPopupTemplate()
+        {
+            return View();
+        }
     }
 }

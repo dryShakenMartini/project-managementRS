@@ -33,3 +33,31 @@
     width: 800px; 
     height: 500px;
 }
+
+.enhanced-datepicker {
+    position: relative;
+}
+
+.enhanced-datepicker > .btn {
+        margin-right:5px;
+
+}
+.menu-extended {
+  padding: 10px;
+}
+
+@media (min-width: 500px) {
+  .menu-extended {
+    width: 100%;
+  }  
+  .col-calendar, .col-buttons {
+    padding: 15px;
+    float: left;
+  }
+  .col-calendar {
+    width: 65%;
+  }
+  .col-buttons {
+    width: 35%;
+  }
+}
