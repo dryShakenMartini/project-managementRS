@@ -6,10 +6,10 @@ namespace ProjectManagementRS.Models
     {
         IEnumerable<User> FindAll();
         IEnumerable<User> FindAllEagerly();
-        User FindById(int Id);
-        User FindUserByUserName(string UserName);
-        User FindUser(string UserName, string Password);
-        void Add(User User);
+        User FindById(int id);
+        User FindUserByUserName(string userName);
+        User FindUser(string userName, string password);
+        void Add(User user);
         bool TryCreate(User user, string password);
     }
 }

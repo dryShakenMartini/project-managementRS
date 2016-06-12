@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Entity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,14 +19,14 @@ namespace ProjectManagementRS.Models
             return _context.Users;
         }
 
-        public User FindUserByUserName(string UserName)
+        public User FindUserByUserName(string userName)
         {
-            return _context.Users.Where(x => x.UserName == UserName).SingleOrDefault();
+            return _context.Users.SingleOrDefault(x => x.UserName == userName);
         }
 
-        public User FindUser(string UserName, string Password)
+        public User FindUser(string userName, string password)
         {
-            return _context.Users.Where(x => x.UserName == UserName && x.Password == Password).SingleOrDefault();
+            return _context.Users.SingleOrDefault(x => x.UserName == userName && x.Password == password);
         }
 
         public void Add(User user)
@@ -36,24 +35,21 @@ namespace ProjectManagementRS.Models
             _context.SaveChanges();
         }
 
-        public User FindById(int Id)
+        public User FindById(int id)
         {
-            return FindAllEagerly().Where(x => x.Id == Id).SingleOrDefault();
+            return FindAllEagerly().SingleOrDefault(x => x.Id == id);
         }
 
         public bool TryCreate(User user, string password)
         {
-            var userExists = _context.Users.Where(u => u.UserName == user.UserName && u.IsActive == true).SingleOrDefault();
+            var userExists = _context.Users.SingleOrDefault(u => u.UserName == user.UserName && u.IsActive);
             if (userExists != null)
             {
                 return false;
             }
-            else
-            {
-                user.Password = password;
-                Add(user);
-                return true;
-            }
+            user.Password = password;
+            Add(user);
+            return true;
         }
 
         public IEnumerable<User> FindAllEagerly()
